@@ -13,3 +13,45 @@ model users {
   orgId String @db.Text
   email String @db.Text
 }
+
+model original_components {
+  id                    String @id(length: 10) @db.Text
+  orgId                 String @db.Text
+  processor_name        String @db.Text
+  ram                   String @db.Text
+  ram_slots             String @db.Text
+  graphics_card         String @db.Text
+  vram                  String @db.Text
+  peripheral_devices    String @db.Text
+  date_of_addition      String @db.Text
+}
+
+model updated_components {
+  id                    String @id(length: 10) @db.Text
+  orgId                 String @db.Text
+  processor_name        String @db.Text
+  ram                   String @db.Text
+  ram_slots             String @db.Text
+  graphics_card         String @db.Text
+  vram                  String @db.Text
+  peripheral_devices    String @db.Text
+  last_date_of_update   String @db.Text
+}
+
+model update_log {
+  id                      String @id(length: 10) @db.Text
+  orgId                   String @db.Text
+  old_processor_name      String @db.Text
+  new_processor_name      String @db.Text
+  old_ram                 String @db.Text
+  new_ram                 String @db.Text
+  old_ram_slots           String @db.Text
+  new_ram_slots           String @db.Text
+  old_graphics_card       String @db.Text
+  new_graphics_card       String @db.Text
+  old_vram                String @db.Text
+  new_vram                String @db.Text
+  old_peripheral_devices  String @db.Text
+  new_peripheral_devices  String @db.Text
+  last_date_of_update     String @db.Text
+}

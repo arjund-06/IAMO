@@ -1,9 +1,10 @@
-const { connection } = require('../application')
+const { prisma } = require('../application')
 
-exports.createComponent = function(req, res) {
+exports.createOriginalComponent = async function(req, res) {
     uid = "qwertyu"
-    const newComponents = {
+    const newComponentsData = {
         id: req.body.id,
+        orgId: req.body.orgId,
         processor_name: req.body.processor_name,
         ram: req.body.ram,
         ram_slots: req.body.ram_slots,
@@ -11,34 +12,26 @@ exports.createComponent = function(req, res) {
         vram: req.body.vram,
         peripheral_devices: req.body.peripheral_devices,
         date_of_addition: req.body.date_of_addition,
-        last_date_of_update: req.body.last_date_of_update,
     };
-    connection.query(`INSERT INTO original_components SET ?`, newComponents, function(error, results, fields) {
-        if (error) throw error;
-        r = results;
-        res.send({ r: r, data: newComponents });
-        return;
+
+    const newComponent = await prisma.original_components.create({
+        data: newComponentsData,
     });
+
+    res.send(newComponent);
 }
 
 
-exports.getAllComponents = function(req, res){
-    let r;
-    connection.query(`SELECT * FROM original_components`,function(error,results,fields){
-        if(error) throw error;
-        r=results;
-        res.send(r);
-        return;
-    });
+exports.getAllOriginalComponents = async function(req, res) {
+    const r = await prisma.original_components.findMany()
+    res.send(r);
 }
 
-exports.getComponentById = function(req,res){
-    let r;
-    connection.query(`SELECT * FROM original_components WHERE id = '${req.params.id}'`,function(error,results,fields) {
-        if(error) throw error;
-        r = results;
-        // console.log("R",r);
-        res.send(r);
-        return;
-    });
+exports.getOriginalComponentById = async function(req, res) {
+    const r = await prisma.original_components.findMany({
+        where: {
+            OR: [{ id: { contains: req.params.id } }]
+        }
+    })
+    res.send(r);
 }

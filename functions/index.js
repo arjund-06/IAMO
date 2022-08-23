@@ -3,7 +3,8 @@ const app = express();
 const { connection } = require('./application')
 
 const { createUser, getuserByUserId, getUserByOrgId, getAllUsers } = require("./apis/users");
-const { createComponent,getAllComponents, getComponentById } = require("./apis/original_components");
+const { createOriginalComponent, getAllOriginalComponents, getOriginalComponentById } = require("./apis/original_components");
+
 app.use(express.json())
 
 connection.connect()
@@ -15,8 +16,12 @@ app.get('/users/:id', (req, res) => { getuserByUserId(req, res) });
 app.get('/users/org/:orgId', (req, res) => { getUserByOrgId(req, res) });
 // app.get('/original_components/:id[p]',(req,res)=>{ getComponentById(req,res)});
 
-app.get('/original_components',(req,res)=>{ getAllComponents(req,res) });
-app.post('/original_components', (req, res) => { createComponent(req, res) });
-app.get('/original_components/:id',(req,res)=>{ getComponentById(req,res) });
+app.get('/original_components', (req, res) => { getAllOriginalComponents(req, res) });
+app.post('/original_components', (req, res) => { createOriginalComponent(req, res) });
+app.get('/original_components/:id', (req, res) => { getOriginalComponentById(req, res) });
+
+app.get('/updated_components', (req, res) => { getAllUpdatedComponents(req, res) });
+app.post('/updated_components', (req, res) => { createUpdatedComponent(req, res) });
+app.get('/updated_components/:id', (req, res) => { getUpdatedComponentById(req, res) });
 
 app.listen(3000, () => console.log("Running"));
