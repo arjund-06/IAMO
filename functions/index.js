@@ -8,6 +8,7 @@ app.use(express.json())
 
 connection.connect()
 
+// ROUTES
 app.get('/users', (req, res) => { getAllUsers(req, res) });
 app.post('/users', (req, res) => { createUser(req, res) });
 app.get('/users/:id', (req, res) => { getuserByUserId(req, res) });
