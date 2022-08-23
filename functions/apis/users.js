@@ -32,12 +32,12 @@ exports.createUser = async function(req, res) {
         },
     });
 
-    connection.query(`INSERT INTO users SET ?`, newUser, function(error, results, fields) {
-        if (error) throw error;
-        r = results;
-        res.send({ r: r, data: newUser });
-        return;
-    });
+    // connection.query(`INSERT INTO users SET ?`, newUser, function(error, results, fields) {
+    //     if (error) throw error;
+    //     r = results;
+    //     res.send({ r: r, data: newUser });
+    //     return;
+    // });
 }
 
 exports.getAllUsers = async function(req, res) {
