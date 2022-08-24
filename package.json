@@ -2,10 +2,10 @@
     "name": "iamo-sih",
     "version": "1.0.0",
     "description": "Eqipment management project",
-    "main": "./index.js",
+    "main": "./functions/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node functions/index.js"
+        "start": "node ./functions/index.js"
     },
     "author": "",
     "license": "ISC",
