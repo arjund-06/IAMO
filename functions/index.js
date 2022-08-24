@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { connection } = require('./application')
+// const { connection } = require('./application')
 
 const { createUser, getuserByUserId, getUserByOrgId, getAllUsers } = require("./apis/users");
 const { createOriginalComponent, getAllOriginalComponents, getOriginalComponentById } = require("./apis/original_components");
@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json())
 
-connection.connect()
+// connection.connect()
 
 // ROUTES
 app.get('/users', (req, res) => { getAllUsers(req, res) });
