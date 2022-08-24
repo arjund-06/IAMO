@@ -6,6 +6,8 @@ const { createUser, getuserByUserId, getUserByOrgId, getAllUsers } = require("./
 const { createOriginalComponent, getAllOriginalComponents, getOriginalComponentById } = require("./apis/original_components");
 const { getAllUpdateLogs, createUpdateLog, getUpdateLogByDeviceId } = require('./apis/update_log');
 
+const PORT = process.env.PORT || 3000;
+
 app.use(express.json())
 
 connection.connect()
@@ -29,4 +31,4 @@ app.get('/update_log', (req, res) => { getAllUpdateLogs(req, res) });
 app.post('/update_log', (req, res) => { createUpdateLog(req, res) });
 app.get('/update_log/:device_id', (req, res) => { getUpdateLogByDeviceId(req, res) });
 
-app.listen(3000, () => console.log("Running"));
+app.listen(PORT, () => console.log(`Running on port ${PORT}`));
