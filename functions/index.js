@@ -4,6 +4,7 @@ const { connection } = require('./application')
 
 const { createUser, getuserByUserId, getUserByOrgId, getAllUsers } = require("./apis/users");
 const { createOriginalComponent, getAllOriginalComponents, getOriginalComponentById } = require("./apis/original_components");
+const { getAllUpdateLogs, createUpdateLog, getUpdateLogByDeviceId } = require('./apis/update_log');
 
 app.use(express.json())
 
@@ -23,5 +24,9 @@ app.get('/original_components/:id', (req, res) => { getOriginalComponentById(req
 app.get('/updated_components', (req, res) => { getAllUpdatedComponents(req, res) });
 app.post('/updated_components', (req, res) => { createUpdatedComponent(req, res) });
 app.get('/updated_components/:id', (req, res) => { getUpdatedComponentById(req, res) });
+
+app.get('/update_log', (req, res) => { getAllUpdateLogs(req, res) });
+app.post('/update_log', (req, res) => { createUpdateLog(req, res) });
+app.get('/update_log/:device_id', (req, res) => { getUpdateLogByDeviceId(req, res) });
 
 app.listen(3000, () => console.log("Running"));

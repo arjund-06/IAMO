@@ -3,19 +3,19 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
 model users {
   name  String @db.Text
-  id    String @id(length: 10) @db.Text
+  id    String @id @db.Text
   orgId String @db.Text
   email String @db.Text
 }
 
 model original_components {
-  id                    String @id(length: 10) @db.Text
+  id                    String @id @db.Text
   orgId                 String @db.Text
   processor_name        String @db.Text
   ram                   String @db.Text
@@ -27,7 +27,7 @@ model original_components {
 }
 
 model updated_components {
-  id                    String @id(length: 10) @db.Text
+  id                    String @id @db.Text
   orgId                 String @db.Text
   processor_name        String @db.Text
   ram                   String @db.Text
@@ -39,7 +39,8 @@ model updated_components {
 }
 
 model update_log {
-  id                      String @id(length: 10) @db.Text
+  log_id                  String @id @db.Text
+  id                      String @db.Text
   orgId                   String @db.Text
   old_processor_name      String @db.Text
   new_processor_name      String @db.Text
