@@ -11,7 +11,7 @@ exports.createUpdatedComponent = async function(req, res) {
         graphics_card: req.body.graphics_card,
         vram: req.body.vram,
         peripheral_devices: req.body.peripheral_devices,
-        date_of_addition: req.body.date_of_addition,
+        last_date_of_update: req.body.last_date_of_update,
     };
 
     const newComponent = await prisma.updated_components.create({
