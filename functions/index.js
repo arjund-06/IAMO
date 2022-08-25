@@ -4,6 +4,7 @@ const app = express();
 
 const { createUser, getuserByUserId, getUserByOrgId, getAllUsers } = require("./apis/users");
 const { createOriginalComponent, getAllOriginalComponents, getOriginalComponentById } = require("./apis/original_components");
+const { createUpdatedComponent, getUpdatedComponentById, getAllUpdatedComponents } = require("./apis/updated_components");
 const { getAllUpdateLogs, createUpdateLog, getUpdateLogByDeviceId } = require('./apis/update_log');
 
 const PORT = process.env.PORT || 3000;
