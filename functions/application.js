@@ -1,7 +1,10 @@
 const mysql = require('mysql');
 const { PrismaClient } = require('@prisma/client')
 
+const cors = require("cors")({ origin: true });
+
 exports.prisma = new PrismaClient()
+
 
 // exports.connection = mysql.createConnection({
 //     host: 'localhost',
