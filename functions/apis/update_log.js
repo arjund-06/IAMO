@@ -1,7 +1,7 @@
 const { prisma, cors } = require('../application')
 
 exports.createUpdateLog = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
         uid = "qwertyu"
 
         const newLogData = {
@@ -32,14 +32,14 @@ exports.createUpdateLog = async function(req, res) {
 
 
 exports.getAllUpdateLogs = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
         const r = await prisma.update_log.findMany();
         res.send(r);
     });
 }
 
 exports.getUpdateLogByDeviceId = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
 
         const r = await prisma.update_log.findMany({
             where: {

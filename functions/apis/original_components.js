@@ -1,7 +1,7 @@
 const { prisma, cors } = require('../application')
 
 exports.createOriginalComponent = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
 
         uid = "qwertyu"
         const newComponentsData = {
@@ -26,14 +26,14 @@ exports.createOriginalComponent = async function(req, res) {
 
 
 exports.getAllOriginalComponents = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
         const r = await prisma.original_components.findMany()
         res.send(r);
     });
 }
 
 exports.getOriginalComponentById = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
         const r = await prisma.original_components.findMany({
             where: {
                 OR: [{ id: { contains: req.params.id } }]

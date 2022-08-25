@@ -12,7 +12,7 @@ const newUser = await prisma.user.create({
 */
 
 exports.createUser = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
 
         uid = "dfsdbivsbdvsib"
         console.log("PARAMS", req.params);
@@ -32,7 +32,7 @@ exports.createUser = async function(req, res) {
 }
 
 exports.getAllUsers = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
         // let r;
         console.log("PARAMETERS", req.params);
         console.log("BODY", req.body);
@@ -43,7 +43,7 @@ exports.getAllUsers = async function(req, res) {
 }
 
 exports.getuserByUserId = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
         // let r;
         console.log("PARAMETERS", req.params);
         const r = await prisma.users.findMany({
@@ -56,7 +56,7 @@ exports.getuserByUserId = async function(req, res) {
 }
 
 exports.getUserByOrgId = async function(req, res) {
-    await cors(req, res, async() => {
+    cors(req, res, async() => {
         // let r;
         const r = await prisma.users.findMany({
             where: {
