@@ -30,7 +30,7 @@ exports.createUpdateLog = async function(req, res) {
             last_date_of_update: req.params.last_date_of_update,
         };
 
-        const newLog = await prisma.updated_components.create({
+        const newLog = await prisma.update_log.create({
             data: newLogData,
         });
 
