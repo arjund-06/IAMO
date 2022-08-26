@@ -1,7 +1,7 @@
 const { prisma, cors } = require('../application')
 
 exports.createUpdatedComponent = async function(req, res) {
-    cors(res, res, async() => {
+    cors(req, res, async() => {
 
         uid = "qwertyu"
         const newComponentsData = {
