@@ -7,6 +7,11 @@ exports.createUpdatedComponent = async function(req, res) {
         const newComponentsData = {
             id: req.body.id,
             orgId: req.body.orgId,
+            computer_name: req.body.computer_name,
+            os: req.body.os,
+            processor_name: req.body.processor_name,
+            storage_capacity: req.body.storage_capacity,
+            storage_drives: req.body.storage_drives,
             processor_name: req.body.processor_name,
             ram: req.body.ram,
             ram_slots: req.body.ram_slots,

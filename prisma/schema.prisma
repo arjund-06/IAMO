@@ -15,44 +15,60 @@ model users {
 }
 
 model original_components {
-  id                    String @id @db.Text
-  orgId                 String @db.Text
-  processor_name        String @db.Text
-  ram                   String @db.Text
-  ram_slots             String @db.Text
-  graphics_card         String @db.Text
-  vram                  String @db.Text
-  peripheral_devices    String @db.Text
-  date_of_addition      String @db.Text
+  id                      String @id @db.Text
+  orgId                   String @db.Text
+  computer_name           String @db.Text
+  os                      String @db.Text
+  processor_name          String @db.Text
+  storage_capacity        String @db.Text
+  storage_drives          String @db.Text
+  ram                     String @db.Text
+  ram_slots               String @db.Text
+  graphics_card           String @db.Text
+  vram                    String @db.Text
+  peripheral_devices      String @db.Text
+  date_of_addition        String @db.Text
 }
 
 model updated_components {
-  id                    String @id @db.Text
-  orgId                 String @db.Text
-  processor_name        String @db.Text
-  ram                   String @db.Text
-  ram_slots             String @db.Text
-  graphics_card         String @db.Text
-  vram                  String @db.Text
-  peripheral_devices    String @db.Text
-  last_date_of_update   String @db.Text
+  id                        String @id @db.Text
+  orgId                     String @db.Text
+  computer_name             String @db.Text
+  os                        String @db.Text
+  storage_capacity          String @db.Text
+  storage_drives            String @db.Text
+  processor_name            String @db.Text
+  ram                       String @db.Text
+  ram_slots                 String @db.Text
+  graphics_card             String @db.Text
+  vram                      String @db.Text
+  peripheral_devices        String @db.Text
+  last_date_of_update       String @db.Text
 }
 
 model update_log {
-  log_id                  String @id @db.Text
-  id                      String @db.Text
-  orgId                   String @db.Text
-  old_processor_name      String @db.Text
-  new_processor_name      String @db.Text
-  old_ram                 String @db.Text
-  new_ram                 String @db.Text
-  old_ram_slots           String @db.Text
-  new_ram_slots           String @db.Text
-  old_graphics_card       String @db.Text
-  new_graphics_card       String @db.Text
-  old_vram                String @db.Text
-  new_vram                String @db.Text
-  old_peripheral_devices  String @db.Text
-  new_peripheral_devices  String @db.Text
-  last_date_of_update     String @db.Text
+  log_id                       String @id @db.Text
+  id                           String @db.Text
+  orgId                        String @db.Text
+  old_computer_name            String @db.Text
+  new_computer_name            String @db.Text
+  old_os                       String @db.Text
+  new_os                       String @db.Text
+  old_processor_name           String @db.Text
+  new_processor_name           String @db.Text
+  old_storage_capacity         String @db.Text
+  new_storage_capacity         String @db.Text
+  old_storage_drives           String @db.Text
+  new_storage_drives           String @db.Text
+  old_ram                      String @db.Text
+  new_ram                      String @db.Text
+  old_ram_slots                String @db.Text
+  new_ram_slots                String @db.Text
+  old_graphics_card            String @db.Text
+  new_graphics_card            String @db.Text
+  old_vram                     String @db.Text
+  new_vram                     String @db.Text
+  old_peripheral_devices       String @db.Text
+  new_peripheral_devices       String @db.Text
+  last_date_of_update          String @db.Text
 }
